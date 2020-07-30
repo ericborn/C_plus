@@ -15,6 +15,15 @@ public:
 	// Sets default values for this pawn's properties
 	ALearningPawn();
 
+	UPROPERTY(EditAnywhere)
+	class UStaticMeshComponent* PlayerMesh;
+
+	UPROPERTY(EditAnywhere)
+	class UCameraComponent* Camera;
+
+	UPROPERTY(EditAnywhere)
+	class UFloatingPawnMovement* PlayerMovement;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -26,6 +35,12 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// implement player controls
+	// negative values as inputs will produce the opposite action
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+	void Turn(float Value);
+	void LookUp(float Value);
 	void Jump();
 
 };
