@@ -14,6 +14,8 @@ Aball::Aball()
 	BallMesh = CreateDefaultSubobject<UStaticMeshComponent>("BallMesh");
 	BallMesh->SetSimulatePhysics(true);
 
+	LaunchVelocity = 100000.f;
+
 }
 
 // Called when the game starts or when spawned
@@ -23,7 +25,7 @@ void Aball::BeginPlay()
 	
 	UE_LOG(LogTemp, Warning, TEXT("hello world"));
 
-	BallMesh->AddImpulse(FVector(0.f, 0.f, 10000.f));
+	BallMesh->AddImpulse(FVector(0.f, 0.f, LaunchVelocity));
 }
 
 // Called every frame

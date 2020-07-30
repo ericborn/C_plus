@@ -15,9 +15,13 @@ public:
 	// Sets default values for this actor's properties
 	Aball();
 
-	// sets up properties for the ball actor
+	// allows a static mesh to be assigned to the ball
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* BallMesh;
+	
+	// setup an editable value for the launch velocity of the ball
+	UPROPERTY(EditAnywhere)
+	float LaunchVelocity;
 
 protected:
 	// Called when the game starts or when spawned
