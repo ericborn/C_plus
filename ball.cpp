@@ -12,7 +12,7 @@ Aball::Aball()
 
 	// create sub-object that is a static mesh called BallMesh
 	BallMesh = CreateDefaultSubobject<UStaticMeshComponent>("BallMesh");
-
+	BallMesh->SetSimulatePhysics(true);
 
 }
 
@@ -22,6 +22,8 @@ void Aball::BeginPlay()
 	Super::BeginPlay();
 	
 	UE_LOG(LogTemp, Warning, TEXT("hello world"));
+
+	BallMesh->AddImpulse(FVector(0.f, 0.f, 10000.f));
 }
 
 // Called every frame
